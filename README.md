@@ -1,4 +1,4 @@
-# fetal_slam
+# fetalslam
 
 This repository contains the implementation used in the paper:
 
@@ -24,6 +24,6 @@ It will be updated with additional documentation and usage examples after the re
 Clone the repository and install the required dependencies:
 
 ```bash
-git clone https://github.com/Fetal-SLAM/fetal_slam.git
+git clone https://github.com/Fetal-SLAM/fetalslam.git
 cd fetal_slam
 pip install -r requirements.txt
