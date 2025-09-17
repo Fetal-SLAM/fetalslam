@@ -2,8 +2,10 @@
 
 This repository contains the implementation used in the paper:
 
-> *Fetal SLAM: Monocular Endoscopic SLAM in Low-texture Environment for Fetal Surgery*  
+> *Fetal SLAM: Monocular Endoscopic SLAM in Low-texture Environment for Fetal Surgery*
+> 
 > Submitted to *IEEE*, under double-blind review.
+> 
 > The source code will be released upon acceptance. Data will be made available on request.
 
 ---
