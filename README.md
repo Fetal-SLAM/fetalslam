@@ -28,5 +28,5 @@ Clone the repository and install the required dependencies:
 
 ```bash
 git clone https://github.com/Fetal-SLAM/fetalslam.git
-cd fetal_slam
+cd fetalslam
 pip install -r requirements.txt
