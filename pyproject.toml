@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fetal-slam"
+version = "0.1.0"
+description = "Offline monocular SLAM with XFeat and LighterGlue."
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+  "numpy<2",
+  "opencv-contrib-python==4.10.0.84",
+  "scipy",
+  "scikit-image",
+  "matplotlib",
+  "pandas",
+  "seaborn",
+  "open3d",
+  "Pillow",
+  "PyYAML",
+  "tqdm",
+  "torch==2.4.1",
+  "torchvision==0.19.1",
+  "kornia==0.7.3",
+  "trimesh",
+  "PyOpenGL",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"fetal_slam.features" = ["LICENSE", "README.md", "weights/*.pt"]
+
+[tool.setuptools.data-files]
+"share/fetal-slam/param" = ["config/param/dense_map.yaml", "config/param/runtime.yaml"]
+
+[project.scripts]
+fetal-slam = "fetal_slam.slam:cli"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

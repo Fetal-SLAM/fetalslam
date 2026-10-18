@@ -1,0 +1,27 @@
+name: fetal-slam
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy<2
+  - scipy
+  - scikit-image
+  - matplotlib
+  - pandas
+  - seaborn
+  - pillow
+  - tk
+  - pyyaml
+  - tqdm
+  - pytest
+  - pytorch=2.4.1
+  - torchvision=0.19.1
+  - pip:
+      - opencv-contrib-python==4.10.0.84
+      - open3d
+      - kornia==0.7.3
+      - trimesh
+      - PyOpenGL

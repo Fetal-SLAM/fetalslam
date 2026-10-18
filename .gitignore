@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+env/
+conda-meta/
+
+# Local data and generated outputs
+data/**
+!data/.gitkeep
+outputs/**
+!outputs/.gitkeep
+*.bag
+*.mp4
+*.avi
+*.mov
+*.gif
+*.ply
+*.obj
+*.mtl
+*.npy
+*.npz
+*.pkl
+*.zip
+*.tar
+*.tar.gz
+
+# Local/editor state
+.DS_Store
+.history/
+.vscode/
+.idea/
+.aws/
+.ssh/
+.codex/
+
+# Private launchers retained for local testing only
+/scripts/run_full_slam.sh
+/scripts/run_unity_slam.sh
+/scripts/local/
+/config/local/
+/debug.txt
+*.log
+/public_release/
+

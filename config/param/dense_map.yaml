@@ -1,0 +1,37 @@
+dense_map_config:
+  surface_mode: pca  # Unity/ex-vivo presets override this with plane_grid
+  plane_distance_ratio: 0.03  # RANSAC tolerance / robust cloud extent
+  plane_ransac_iterations: 1000
+  plane_min_inlier_ratio: 0.5
+  plane_grid_cells: 128  # Cells along the longer side
+  plane_neighbors: 8
+  plane_support_radius_factor: 3.0
+  plane_data_weight: 4.0
+  plane_smooth_weight: 1.0
+  plane_smooth_iterations: 50
+  num_points: 1000000
+  iterations: 500
+  stop_patience: 10
+  residual_tolerance: 0.00001
+  max_keyframes: 0  # All retained frames
+  margin: 5
+  min_views: 2
+  min_point_observations: 2
+  min_sparse_points: 10
+  min_dense_points: 20
+  mesh_edge_factor: 6.0
+  collinear_ratio: 0.000001
+  sampling_min_depth: 0.01  # SLAM map units
+  pba_min_depth: 0.0
+  fusion_min_depth: 0.0
+  min_pba_observations: 20
+  pba_damping: 0.0001
+  pba_min_overlap: 0.995  # Retain at least 99.5% of previously visible samples
+  pba_backtracking_steps: 6  # Halve rejected pose increments before retrying
+  max_rotation_step: 0.05  # Radians per iteration
+  max_translation_depth_ratio: 0.02
+  gradient_kernel: 3
+  gradient_scale: 0.125
+  device: auto
+  viewer_width: 1280
+  viewer_height: 900

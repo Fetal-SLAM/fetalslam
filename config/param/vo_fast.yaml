@@ -1,0 +1,49 @@
+dense_map_config:
+  surface_mode: plane_grid
+  num_points: 1000000
+  iterations: 500  # Hard upper limit
+  stop_patience: 10  # Consecutive stable residual changes before stopping
+  residual_tolerance: 0.00001  # Absolute photometric MSE change
+  max_keyframes: 0  # 0 uses all retained keyframes
+  margin: 5
+  min_views: 2
+  mesh_edge_factor: 6.0
+  device: auto
+
+system_config:
+  track_only: false
+  debug_flag: true
+  # Long-term place recognition and recovery.
+  loop_min_frame_gap: 120
+  loop_cooldown_frames: 150
+  loop_iou_threshold: 0.65
+  loop_confirmation_count: 2
+  place_candidate_count: 12
+  relocalization_iou_threshold: 0.45
+  relocalization_after_failures: 2
+  relocalization_interval: 3
+  # Conservative gates measured on the ex-vivo sequence.
+  blur_laplacian_min: 6.0
+  noise_laplacian_max: 80.0
+  image_contrast_min: 25.0
+  # Geometric map-point validation, relative to the current scene scale.
+  triangulation_min_parallax_degrees: 1.0
+  triangulation_max_depth_factor: 5.0
+  # Disabled: generated Shi-Tomasi points do not carry pyramid octave scales.
+  triangulation_distance_ratio: 0.0
+  initial_min_map_points: 50
+  # Keep the established ex-vivo behavior unless explicitly enabled.
+  local_map_recovery_enabled: false
+  local_point_reuse_enabled: false
+  local_map_recovery_interval: 3
+  local_map_recovery_min_frame_gap: 30
+  local_map_recovery_candidate_count: 4
+  local_map_recovery_iou_threshold: 0.30
+  local_map_recovery_min_inliers: 15
+  local_map_recovery_min_observations: 2
+  local_map_recovery_max_points: 120
+  local_map_recovery_reprojection_error: 4.0
+  local_map_recovery_max_pose_jump_depth_factor: 0.1
+
+tracker_config:
+  max_kpts: 3000

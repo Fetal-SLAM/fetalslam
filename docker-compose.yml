@@ -1,0 +1,17 @@
+services:
+  fetal-slam:
+    build: .
+    image: fetal-slam:public
+    working_dir: /workspace
+    environment:
+      - DISPLAY=${DISPLAY}
+      - XAUTHORITY=/tmp/slam.xauth
+      - HOME=/tmp
+    user: "${LOCAL_UID:-1000}:${LOCAL_GID:-1000}"
+    volumes:
+      - ./data:/workspace/data:ro
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+      - ${XAUTHORITY:?Set XAUTHORITY to an X11 cookie file}:/tmp/slam.xauth:ro
+    command: ["unity"]
+    stdin_open: true
+    tty: true
