@@ -50,7 +50,6 @@ if [[ ! -d "$dataset" ]]; then
   exit 2
 fi
 
-export PYTHONPATH="$REPO_ROOT/src${PYTHONPATH:+:$PYTHONPATH}"
 exec "${PYTHON_BIN:-python3}" -m fetal_slam \
   "$system_config" "$camera_config" "$dataset" \
   --data-mode image-sequence --image-subdir "$image_subdir" "$@"

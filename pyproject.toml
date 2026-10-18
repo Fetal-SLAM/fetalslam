@@ -28,10 +28,8 @@ dependencies = [
 ]
 
 [tool.setuptools]
-package-dir = {"" = "src"}
-
-[tool.setuptools.packages.find]
-where = ["src"]
+package-dir = {"fetal_slam" = "src"}
+packages = ["fetal_slam", "fetal_slam.features", "fetal_slam.features.modules"]
 
 [tool.setuptools.package-data]
 "fetal_slam.features" = ["LICENSE", "README.md", "weights/*.pt"]
@@ -43,5 +41,4 @@ where = ["src"]
 fetal-slam = "fetal_slam.slam:cli"
 
 [tool.pytest.ini_options]
-pythonpath = ["src"]
 testpaths = ["tests"]

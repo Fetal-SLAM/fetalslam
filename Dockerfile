@@ -4,7 +4,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 ARG BUILD_JOBS=2
 ARG G2OPY_REV=5587024b17fd812c66d91740716fbf0bf5824fbc
 ARG PANGOLIN_REV=3ac794aff96c3db103ec2bbc298ab013eaf6f6e8
-ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PYTHONPATH=/workspace/src
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
 ENV QT_X11_NO_MITSHM=1 LIBGL_ALWAYS_SOFTWARE=1
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -52,7 +52,9 @@ RUN python3 /opt/native/finalize_bindings.py \
     && python3 -c "import g2o, pangolin, cv2, open3d, tkinter"
 WORKDIR /workspace
 COPY . .
-RUN python3 -c "from fetal_slam.features.modules.lighterglue import LighterGlue; LighterGlue()" \
+RUN python3 -m pip install --no-cache-dir --upgrade 'pip>=23,<26' \
+    && python3 -m pip install --no-cache-dir --no-deps . \
+    && python3 -c "from fetal_slam.features.modules.lighterglue import LighterGlue; LighterGlue()" \
     && python3 -m pytest -q
 ENTRYPOINT ["bash", "/workspace/docker/entrypoint.sh"]
 CMD ["unity"]

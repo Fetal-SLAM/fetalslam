@@ -12,7 +12,7 @@ import yaml
 
 @lru_cache(maxsize=1)
 def _defaults():
-    path = Path(__file__).resolve().parents[2] / 'config/param/runtime.yaml'
+    path = Path(__file__).resolve().parents[1] / 'config/param/runtime.yaml'
     if not path.is_file():
         path = Path(sysconfig.get_path('data')) / 'share/fetal-slam/param/runtime.yaml'
     with path.open() as stream:

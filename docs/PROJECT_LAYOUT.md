@@ -2,9 +2,12 @@
 
 ## Maintained Runtime
 
-`src/fetal_slam` is the only maintained SLAM implementation. It is a regular
-Python package with relative imports, so execution does not depend on placing
-the module directory itself on `PYTHONPATH`.
+`src/` directly contains the maintained SLAM modules. `pyproject.toml` maps this
+directory to the `fetal_slam` Python package, preserving relative imports and
+the existing CLI. Run `python -m pip install --no-deps -e .` in the active local
+environment before launching or testing, using pip 23 or newer;
+setting `PYTHONPATH=src` is not enough.
+Docker installs the package during its build.
 
 The command-line flow is:
 
@@ -29,7 +32,7 @@ PCA/Delaunay mode is an explicit alternative. `dense_config.py` validates defaul
 the runtime.
 
 The XFeat inference subset required at runtime lives in
-`src/fetal_slam/features`, including its license and model weights.
+`src/features`, including its license and model weights.
 
 ## Non-Runtime Code
 

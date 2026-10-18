@@ -19,7 +19,8 @@ def export_public(root, destination):
     files = {'.gitignore', '.dockerignore', 'README.md', 'Dockerfile',
              'docker-compose.yml', 'environment.yml', 'pyproject.toml',
              'requirements.txt', 'LICENSE', 'NOTICE', 'data/.gitkeep', 'outputs/.gitkeep'}
-    private = {'scripts/run_full_slam.sh', 'scripts/run_unity_slam.sh'}
+    private = {'scripts/run_full_slam.sh', 'scripts/run_unity_slam.sh',
+               'scripts/run_exvivo.sh', 'scripts/run_unity.sh'}
     selected = []
     for relative in paths:
         name = relative.as_posix()

@@ -46,7 +46,9 @@ outputs/**
 .ssh/
 .codex/
 
-# Private launchers retained for local testing only
+# Development launchers are retained only on main
+/scripts/run_exvivo.sh
+/scripts/run_unity.sh
 /scripts/run_full_slam.sh
 /scripts/run_unity_slam.sh
 /scripts/local/

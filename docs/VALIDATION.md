@@ -2,6 +2,18 @@
 
 Checked on 2026-10-18. These are observed results, not accuracy benchmarks.
 
+## Flat Source Layout
+
+After moving the package files directly into `src/`, both editable installation
+and wheel installation passed all 88 tests in the native-dependency Docker image.
+The installed wheel also resolved the CLI, YAML defaults and bundled weights
+from outside the source checkout, without `PYTHONPATH`.
+A 120-frame ex-vivo run of that wheel ended in `TRACKING` with 200 map points
+and nonblank Pangolin rendering. This check reused the existing dependency
+image; a complete rebuild of the updated Dockerfile was not repeated.
+
+The following results describe the earlier release before the directory change.
+
 ## Docker
 
 - Built the Dockerfile successfully on Linux x86-64: Ubuntu 22.04, Python 3.10,

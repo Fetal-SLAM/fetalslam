@@ -1,49 +1,32 @@
 # Public Release
 
-## Portable Launchers
+## Branches And Launchers
 
-Activate a Python environment with the required native bindings, then run:
+`main` retains the development launchers, including `run_exvivo.sh`,
+`run_unity.sh`, `run_full_slam.sh` and `run_unity_slam.sh`.
+`public-release` and public exports exclude these four scripts. Use the generic
+commands in [README](../README.md); `run_docker.sh` forwards a supplied Python
+command and `run_slam.sh` also supports the existing configuration presets.
 
-```bash
-bash scripts/run_unity.sh
-bash scripts/run_unity.sh data/standard_data/Images_unity_2 --max-frames 120
-bash scripts/run_exvivo.sh --max-frames 120
-```
-
-The launchers locate the repository from their own location, not the caller's
-working directory. Dataset paths are relative to the repository root; absolute
-paths can also be supplied locally. No local interpreter path is embedded.
-Set `PYTHON_BIN` to override `python3` from the active environment.
-Datasets are not distributed. Place Unity images in
-`data/standard_data/Images_unity_1/images` (or `Images_unity_2/images`) and ex-vivo
-images in `data/standard_data/ex_vivo_data/undist_image`.
-
-The previous `run_full_slam.sh` and `run_unity_slam.sh` scripts, local overrides,
-logs and datasets are excluded from Git, Docker builds and public exports.
-Their local copies can still be used for private testing.
+Install the package in your active environment before local execution. Data,
+logs and machine-specific overrides in `scripts/local/` and `config/local/`
+are not included. Development launcher defaults may require a local dataset
+layout; override their data paths when using another machine.
 
 ## Export Without History
 
-Deleting private paths in a new commit does not remove them from older commits.
-Existing commit authors and emails also remain in Git history. Do not publish
-the existing history when a history-free release is required.
-
 ```bash
-python3 scripts/export_public.py
-cd public_release
-git init
-git symbolic-ref HEAD refs/heads/main
-git add .
-git diff --cached --stat
+python3 scripts/export_public.py new_public_export
 ```
 
-Review the files before committing. Configure the new repository's author name
-and a suitable public or GitHub-provided no-reply email before the first commit.
-Then commit and push to a new empty remote. Do not force-push over an existing
-remote's history without a separate review and backup.
+The export copies current source files, including uncommitted changes, without
+a `.git` directory. It refuses to overwrite an existing destination. The four
+development launchers are excluded even when tracked on `main`.
 
-The export copies current source files, including uncommitted changes, and
-contains no `.git` directory. It refuses to overwrite an existing destination.
-This is a publication convenience, not a comprehensive secret scanner. Review
-new source files and binary assets before publishing. Third-party license and
-author attribution must remain intact.
+Review files and binary assets before publishing. This is not a comprehensive
+secret scanner. Retain third-party license and author attribution. Use a public
+or GitHub no-reply commit email when creating a new repository.
+
+Removing files from a branch does not remove them or author information from
+earlier commits. Publishing `public-release` does not scrub `main` or make the
+repository public. Do not force-push existing history without separate review.

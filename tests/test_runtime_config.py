@@ -49,7 +49,7 @@ def test_runtime_config_rejects_invalid_values():
 
 
 def test_presets_load_with_shared_runtime_defaults():
-    root = Path(fetal_slam.__file__).resolve().parents[2]
+    root = Path(__file__).resolve().parents[1]
     for profile, camera in [('vo_fast.yaml', 'feto_cam_exvivo.yaml'), ('vo_unity.yaml', 'feto_cam.yaml')]:
         params = Parameter()
         params.load_sys_param(root/'config/param'/profile, root/'config/param'/camera)
@@ -80,7 +80,7 @@ def test_runtime_contains_no_print_calls_or_retired_scripts():
     for path in package.rglob('*.py'):
         tree = ast.parse(path.read_text())
         assert not any(isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == 'print' for n in ast.walk(tree)), path
-    assert not (package.parents[1]/'extras').exists()
+    assert not (Path(__file__).resolve().parents[1]/'extras').exists()
 
 
 def test_no_silently_overwritten_class_methods():

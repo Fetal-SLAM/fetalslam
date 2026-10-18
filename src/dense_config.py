@@ -7,7 +7,7 @@ import yaml
 
 
 def dense_settings(values=None):
-    path = Path(__file__).resolve().parents[2] / 'config' / 'param' / 'dense_map.yaml'
+    path = Path(__file__).resolve().parents[1] / 'config' / 'param' / 'dense_map.yaml'
     if not path.is_file():
         path = Path(sysconfig.get_path('data')) / 'share' / 'fetal-slam' / 'param' / 'dense_map.yaml'
     with path.open() as stream:
