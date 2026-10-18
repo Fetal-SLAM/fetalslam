@@ -72,6 +72,4 @@ Append `--max-frames 120` for a short run. At normal sequence completion, a dial
 offers optional surface reconstruction and Open3D visualization; bounded runs
 skip this dialog. The surface is fitted from sparse points, not multi-view stereo.
 
-Monocular scale is arbitrary. This is research software, not a validated clinical
-system. See [validation](docs/VALIDATION.md) and [project layout](docs/PROJECT_LAYOUT.md).
-Third-party attribution is retained; no project-wide license has been selected.
+
